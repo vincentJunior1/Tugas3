@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    hellow world
+    <script>
+        async function getData() {
+            try {
+               let res = await fetch('https://jsonplaceholder.typicode.com/users')
+               return await res.json()
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+        async function showData () {
+            let users = await getData()
+            users.forEach(user => {
+                console.log(user.name)
+            });
+        }
+        showData()
+    </script>
+</body>
+
+</html>
