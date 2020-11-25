@@ -21,3 +21,20 @@ hariKerja('senin')
 .catch((error) =>{
     console.log(error)
 })
+
+async function getData(day){
+    try{
+        let result = await hariKerja(day)
+        await showData(result)
+    }catch(error){
+        console.log(error)
+    }
+}
+
+
+function showData(result){
+    console.log(result)
+}
+
+
+getData('senin')
