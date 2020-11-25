@@ -8,7 +8,7 @@ const cekName = (name) => {
             if (cekData) {
                 resolve(cekData)
             } else {
-                reject(new Error('Data Not Found', []))
+                reject(new Error('Data Not Found'), [])
             }
         }, 2000)
     })
@@ -23,6 +23,14 @@ cekName('vincent')
     })
 
 
+async function getName(name){
+    try{
+        let getSpecName = await cekName(name)
+        console.log(getSpecName)
+    }catch(error){
+        console.log(error)
+    }
+}
 
 const cekGenreGame = (name) => {
     return new Promise((resolve, reject) => {
@@ -48,3 +56,12 @@ cekGenreGame('rpg')
     .catch((error) => {
         console.log(error)
     })
+
+async function getGenre(genre){
+    try{
+        let newGenre = await cekGenreGame(genre)
+        console.log(newGenre)
+    }catch(error){
+        console.log(error)
+    }
+}   
