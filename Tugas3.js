@@ -65,3 +65,7 @@ async function getGenre(genre){
         console.log(error)
     }
 }   
+
+
+getGenre('rpg')
+getName('vincent')
