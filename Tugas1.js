@@ -3,7 +3,7 @@ const hariKerja = (day) => {
         setTimeout(() =>{
             const dataDay = ['senin', 'selasa', 'rabu','kamis','jumat']
             let cek = dataDay.find((item) =>{
-                return item === day
+                return item === day.toLowerCase()
             })
             if(cek){
                 resolve(cek)
@@ -14,7 +14,7 @@ const hariKerja = (day) => {
     })
 }
 
-hariKerja('senin')
+hariKerja('Senin')
 .then((result)=>{
     console.log(result)
 })

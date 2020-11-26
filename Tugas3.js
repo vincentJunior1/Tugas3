@@ -3,14 +3,14 @@ const cekName = (name) => {
         setTimeout(() => {
             let nameWork = ['vincent', 'richard', 'hensam', 'kania']
             let cekData = nameWork.find((item) => {
-                return item === name
+                return item === name.toLowerCase()
             })
             if (cekData) {
                 resolve(cekData)
             } else {
                 reject(new Error('Data Not Found'), [])
             }
-        }, 2000)
+        }, 200)
     })
 }
 
@@ -19,7 +19,7 @@ cekName('vincent')
         console.log(result)
     })
     .catch((error) => {
-        console.log(error)
+        console.log(error,[])
     })
 
 
@@ -37,7 +37,7 @@ const cekGenreGame = (name) => {
         setTimeout(() => {
             let data = ['rpg', 'fps', 'adventure', 'open world', 'indie']
             let hasil = data.find((item) => {
-                return item === name
+                return item === name.toLowerCase()
             })
             if (hasil) {
                 resolve(hasil)
