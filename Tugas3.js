@@ -32,40 +32,40 @@ async function getName(name){
     }
 }
 
-const cekGenreGame = (name) => {
+const sortData = (data) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            let data = ['rpg', 'fps', 'adventure', 'open world', 'indie']
-            let hasil = data.find((item) => {
-                return item === name.toLowerCase()
-            })
-            if (hasil) {
-                resolve(hasil)
-            } else {
-                reject(new Error('Data not found', []))
+            let dataLength = data.length - 1
+            let temp
+            let newData = []
+            for(let i =0; i < dataLength + 1; i++){
+                for(let a = 0; a < dataLength; a++){
+                    if(data[i] <= data[i+1]){
+                        temp = data[i+1]
+                        newData[i] = temp
+                    }
+                }
             }
+            if(newData.length != 0){
+                resolve(newData)
+            }else{
+                reject(new Error('Tidak ada data yang di sort'))
+            }
+
         }, 100)
     })
 
 }
 
-cekGenreGame('rpg')
-    .then((result) => {
-        console.log(result)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
-
-async function getGenre(genre){
+async function noDoubleData(data){
     try{
-        let newGenre = await cekGenreGame(genre)
-        console.log(newGenre)
+        let newData = await sortData(data)
+        console.log(newData)
     }catch(error){
         console.log(error)
     }
 }   
 
 
-getGenre('rpg')
+noDoubleData([1,1,2,3,5,3])
 getName('vincent')
